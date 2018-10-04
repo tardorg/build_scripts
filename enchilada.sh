@@ -15,6 +15,9 @@ export AOSIPVER=9.0
 export DEVICENAME=enchilada
 export MAKETARGET=kronic
 
+# Go to source directory
+cd ~/pie-aosip
+
 telegram-send --config $ROL --format html "Deleting old logs now"
 rm -rf log*.txt
 
@@ -27,9 +30,6 @@ export BUILDTIME=$(date +%H%M)
 
 # Tell everyone we are going to start building
 telegram-send --config $ROL --format html "Starting build (<code>AOSiP-$AOSIPVER-$AOSIP_BUILDTYPE-$DEVICENAME-$BUILDDATE</code>)"
-
-# Go to source directory
-cd ~/pie-aosip
 
 # Log
 telegram-send --config $ROL --format html "Logging to file <code>log-$BUILDDATE-$BUILDTIME.txt</code>"
