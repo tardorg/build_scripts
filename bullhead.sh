@@ -4,7 +4,7 @@
 export USE_CCACHE=1
 
 # Telegram
-export ROL=bullhead.conf
+export ROL=nexmeme.conf
 
 # Google Drive for Linux
 export GDRIVE=/usr/bin/gdrive
