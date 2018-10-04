@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Telegram
-export ROL=~/fabian/rolex.conf
-export CHANNEL=~/fabian/channel.conf
+export ROL=~/build_scripts/rolex.conf
+export CHANNEL=~/build_scripts/channel.conf
 
 # Build related
 export DEVICENAME=rolex

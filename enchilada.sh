@@ -4,7 +4,7 @@
 export USE_CCACHE=1
 
 # Telegram Chat ID and Bot API key
-export ROL=onememe.conf
+export ROL=~/build_scripts/onememe.conf
 
 # Google Drive for Linux
 export GDRIVE=/usr/bin/gdrive
