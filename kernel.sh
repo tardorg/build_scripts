@@ -8,6 +8,7 @@ export DEVICENAME=enchilada
 export DEFCONFG=kronic_defconfig
 
 # Path defines
+export SAUCE=/home/anirudhgupta109/sdm845
 export COMPRESS=/home/anirudhgupta109/kernels/compress
 export OUTPUT=/home/anirudhgupta109/kernels
 
@@ -20,6 +21,7 @@ export ZIP=IllusionKernel-$BUILDDATE-$BUILDTIME
 
 # Tell everyone we are going to start building
 #telegram-send --config $ROL --format html "Starting Kernel build <code>$ZIP</code>"
+cd $SAUCE
 
 # Log
 #telegram-send --config $ROL --format html "Logging to file <code>log-$BUILDDATE-$BUILDTIME.txt</code>"
@@ -78,3 +80,4 @@ mv $ZIP.zip $OUTPUT/$ZIP.zip
 telegram-send --config $ROL --file $LOGFILE
 #telegram-send --config $ROL --format html "Deleting logfile"
 rm -rf $LOGFILE
+cd $SAUCE
