@@ -75,6 +75,8 @@ telegram-send --config $ROL --file $ZIP.zip
 #echo -e "AGKernel Completed! \nKernel Name: <code>$ZIP</code>\nDownload link: $DLURL \n\nSince SourceForge takes a while to process files, wait 2-3 mins for it to show" | telegram-send --config $ROL --format html --stdin
 #telegram-send --config $ROL --format html "Moving Kernel zip to Archives"
 mv $ZIP.zip $OUTPUT/$ZIP.zip
+cd $OUTPUT
+git push
 #telegram-send --config $ROL --format html "@anirudhgupta109 for your reference"
 #cd ~/fabian
 telegram-send --config $ROL --file $LOGFILE
