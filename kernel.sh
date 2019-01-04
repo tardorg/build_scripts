@@ -35,9 +35,10 @@ git pull
 
 # Clang and GCC
 #telegram-send --config $ROL --format html "Exporting Clang and GCC paths"
-#export CLANG_TCHAIN=/home/anirudhgupta109/clang/clang-r328903/bin/clang
-#export KBUILD_COMPILER_STRING="$(${CLANG_TCHAIN} --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')"
+export CC=/home/anirudhgupta109/clang/clang-r346389b/bin/clang
+export KBUILD_COMPILER_STRING="$(${CC} --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')"
 export CROSS_COMPILE=/home/anirudhgupta109/gcc/bin/aarch64-linux-android-
+export CLANG_TRIPLE=aarch64-linux-gnu-
 export ARCH=arm64
 export SUBARCH=arm64
 
@@ -49,8 +50,8 @@ rm -rf out/
 source ~/tmp/venv/bin/activate
 
 # Build
-telegram-send --config $ROL --format html "Starting build..."
-make O=out clean && make O=out mrproper && make O=out $DEFCONFG && time make -j$(nproc --all) O=out | tee $LOGFILE
+#telegram-send --config $ROL --format html "Starting build..."
+make O=out $DEFCONFG && time make -j$(nproc --all) O=out | tee $LOGFILE
 EXITCODE=$?
 if [ $EXITCODE -ne 0 ]; then telegram-send --config $ROL --format html "Build failed! Check log file <code>$LOGFILE</code>"; telegram-send --config $ROL --file $LOGFILE; exit 1; fi
 #telegram-send --config $ROL --format html "Build finished successfully!"
