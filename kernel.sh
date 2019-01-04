@@ -16,12 +16,13 @@ export OUTPUT=/home/anirudhgupta109/kernels
 export BUILDDATE=$(date +%d%m)
 export BUILDTIME=$(date +%H%M)
 
-# Name of zip
-export ZIP=IllusionKernel-$BUILDDATE-$BUILDTIME
-
 # Tell everyone we are going to start building
 #telegram-send --config $ROL --format html "Starting Kernel build <code>$ZIP</code>"
 cd $SAUCE
+export SUBVER=$(grep "SUBLEVEL =" < Makefile | awk '{print $3}')
+
+# Name of zip
+export ZIP=IllusionKernel-$SUBVER-$BUILDDATE-$BUILDTIME
 
 # Log
 #telegram-send --config $ROL --format html "Logging to file <code>log-$BUILDDATE-$BUILDTIME.txt</code>"
@@ -63,8 +64,6 @@ cp out/arch/arm64/boot/Image.gz-dtb $COMPRESS/
 cd $COMPRESS
 #telegram-send --config $ROL --format html "Compressing AGKernel zip"
 zip $ZIP -r *
-mv $ZIP $ZIP.zip
-
 
 # Starting upload!
 #telegram-send --config $ROL --format html "Uploading $ZIP to SourceForge..."
