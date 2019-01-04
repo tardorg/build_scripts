@@ -78,8 +78,7 @@ mv $ZIP.zip $OUTPUT/$ZIP.zip
 cd $OUTPUT
 git push
 #telegram-send --config $ROL --format html "@anirudhgupta109 for your reference"
-#cd ~/fabian
-telegram-send --config $ROL --file $LOGFILE
+cd $SAUCE
+telegram-send --config $ROL --file out/include/generated/compile.h
 #telegram-send --config $ROL --format html "Deleting logfile"
 rm -rf $LOGFILE
-cd $SAUCE
